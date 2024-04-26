@@ -1,0 +1,65 @@
+{% include 'user/projecthomepage.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href={% static 'CSS/standardbooking.css' %}/>
+    <title>Hotel booking</title>
+</head>
+<body>
+{% block body %}
+<section id="Booking_part">
+     <div class="container">
+          <div class="row">
+            <div class="col-lg-4">
+               <div class="BOOKING_DETAILS">
+                   <div class="BOOKING_title">
+                     <h2>BOOKING DETAILS</h2>
+                     <p>Selected Room</p>
+                   </div>
+                   <div class="BOOKING_pic">
+                     <img src={% static "media/hotelimages/hotel5.jpeg" %} class="card-img-top" alt="hotel-image">
+                     <h4>Standard Room</h4>
+                   </div>
+               </div>
+               <div class="BOOKING_help">
+                  <div class="BOOKING_help_title">
+                     <h3>NEED HELP FOR BOOKING !</h3>
+                     <p>Help</p>
+                  </div>
+                  <div class="BOOKING_help_icon">
+                     <p><i class="fas fa-mobile-alt"></i></p>
+                     <span>01862993458</span>
+                     <h6>abcd@gamil.com</h6>
+                  </div>
+               </div>
+            </div>
+            <div class="col-lg-8">
+               <div class="BOOKING_from">
+                  <div class="BOOKING_from_title">
+                     <h3>PERSONAL INFORMATION</h3>
+                     <span>Booking form</span>
+                     <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
+                         ut laoreet dolore magna aliquam erat volutpat</p>
+                  </div>
+                  <div class="BOOKING_from_info">
+                     <form method="POST" action="{% url 'standardbooking' %}" enctype="multipart/form-data">
+                          {% csrf_token %}
+                      {{ form.as_p}}
+
+                         <button type="submit">submit</button>
+                     </form>
+
+
+
+                  </div>
+               </div>
+          </div>
+          </div>
+     </div>
+  </section>
+
+{% endblock %}
+</body>
+</html>
